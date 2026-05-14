@@ -16,16 +16,16 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-header: #2c3e50;
+    --bg-header: #2c4a5a;
     --bg-screen: #1c1c1e;
     --bg-list: #2c2c2e;
     --bg-input: #3a3a3c;
     --text-primary: #e5e5e7;
     --text-secondary: #aeaeb2;
-    --text-heading: #6db3d6;
-    --border-color: #3a3a3c;
+    --text-heading: #8dc4e0;
+    --border-color: #48484a;
     --input-border: #48484a;
-    --button-primary: #2980b9;
+    --button-primary: #4a9aba;
     --button-primary-text: #ffffff;
     --button-add-bg: #c9c31a;
     --button-add-text: #1a1a1a;
@@ -34,7 +34,7 @@
 
 body {
   margin: 0;
-  background: #b8d9e8;
+  background: var(--bg-header);
 }
 
 #root {
