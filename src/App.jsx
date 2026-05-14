@@ -20,7 +20,9 @@ function App() {
   }, [records])
   
   const handleDelete = (index) => {
-    setRecords(records.filter((_, i) => i !== index))
+    if (window.confirm('削除しますか？')) {
+      setRecords(records.filter((_, i) => i !== index))
+    }
   }
 
   const handleEdit = (index) => {

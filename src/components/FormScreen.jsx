@@ -2,9 +2,15 @@ import { useState, useEffect } from 'react'
 
 // 登録画面（SP_02）
 function FormScreen({ onCancel, onSubmit, editData }) {
+  const getLocalDatetime = () => {
+    const now = new Date()
+    return new Date(now.getTime() - now.getTimezoneOffset() * 60000)
+      .toISOString()
+      .slice(0, 16)
+  }
+  
   const [name, setName] = useState('')
-  const today = new Date().toISOString().split('T')[0]
-  const [date, setDate] = useState(today)
+  const [datetime, setDatetime] = useState(getLocalDatetime)
   const [memo, setMemo] = useState('')
 
   const handleSubmit = () => {
@@ -12,18 +18,18 @@ function FormScreen({ onCancel, onSubmit, editData }) {
       alert('くすり名を入力してください')
       return
     }
-    onSubmit({ name, date, memo })
+    onSubmit({ name, datetime, memo })
   }
 
   // editDataが渡されたらフォームに初期値をセット
   useEffect(() => {
     if (editData) {
       setName(editData.name)
-      setDate(editData.date)
+      setDatetime(editData.datetime ?? getLocalDatetime())
       setMemo(editData.memo)
     } else {
       setName('')
-      setDate(today)
+      setDatetime(getLocalDatetime())
       setMemo('')
     }
   }, [editData])
@@ -41,8 +47,8 @@ function FormScreen({ onCancel, onSubmit, editData }) {
         </div>
 
         <div className="form-group">
-          <label>日にち</label>
-          <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+          <label>日時</label>
+          <input type="datetime-local" value={datetime} onChange={(e) => setDatetime(e.target.value)} />
         </div>
 
         <div className="form-group">
@@ -52,10 +58,7 @@ function FormScreen({ onCancel, onSubmit, editData }) {
 
         <div className="form-buttons">
           <button className="cancel-button" onClick={onCancel}>キャンセル</button>
-          <button
-           className="submit-button"
-           onClick={handleSubmit}
-          >
+          <button className="submit-button" onClick={handleSubmit}>
             {editData ? '更新する' : '登録する'}
           </button>
         </div>

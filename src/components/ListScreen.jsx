@@ -1,5 +1,15 @@
 import { useState } from 'react'
 
+const formatDatetime = (datetime) => {
+  if (!datetime) return ''
+  const d = new Date(datetime)
+  const weekdays = ['日', '月', '火', '水', '木', '金', '土',]
+  const weekday = weekdays[d.getDay()]
+  const date = `${d.getFullYear()}/${String(d.getMonth() + 1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')}`
+  const time = `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`
+  return `${date} (${weekday}) ${time}`
+}
+
 // 一覧画面（SP_01）
 function ListScreen({ records, onAdd, onDelete, onEdit }) {
   const [search, setSearch] = useState('')
@@ -11,9 +21,9 @@ function ListScreen({ records, onAdd, onDelete, onEdit }) {
 
   const sorted = [...filtered].sort((a, b) => {
     if (sortOrder === 'new') {
-      return a.date < b.date ? 1 : -1 //新しい順
+      return a.datetime < b.datetime ? 1 : -1 //新しい順
     } else {
-      return a.date > b.date ? 1 : -1 //古い順
+      return a.datetime > b.datetime ? 1 : -1 //古い順
     }
   })
   
@@ -57,7 +67,7 @@ function ListScreen({ records, onAdd, onDelete, onEdit }) {
           <li key={index} className="record-item">
             <div>
               <p className="record-name">{record.name}</p>
-              <p className="record-date">{record.date.replace(/-/g, '/')}</p>
+              <p className="record-date">{formatDatetime(record.datetime)}</p>
               <p className="record-memo">{record.memo}</p>
             </div>
             <div className="action-buttons">
