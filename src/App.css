@@ -141,10 +141,10 @@ input[type="date"] {
 .cancel-button {
   flex: 1;
   padding: 12px 16px;
-  background: var(--bg-input);
-  border: 2px solid var(--button-primary);
+  background: var(--button-cancel-bg);
+  border: 2px solid var(--button-cancel-border);
   border-radius: 8px;
-  color: var(--button-primary);
+  color: var(--button-cancel-text);
   font-size: 16px;
   cursor: pointer;
 }
