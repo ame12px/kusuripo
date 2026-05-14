@@ -4,42 +4,45 @@
   width: 100%;
   margin: 0 auto;
   font-family: sans-serif;
-  background: #f5f5f0;
+  background: var(--bg-screen);
 }
 
 .header {
-  background: #b8d9e8;
-  padding: 16px 20px;
+  background: var(--bg-header);
+  padding: 24px 20px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .header h1 {
-  color: #1a6fa8;
+  color: var(--text-heading);
   font-size: 20px;
   font-weight: bold;
   margin: 0;
+  text-align: center;
+  width: 100%;
 }
 
 .list-screen {
   min-height: 100vh;
-  background: #FFFDEA;
+  background: var(--bg-screen);
 }
 
 .list-top {
-  background: #b8d9e8;
+  background: var(--bg-header);
   padding: 0 20px 16px;
 }
 
 .add-button {
   width: 100%;
   padding: 12px;
-  background: white;
-  border: 2px solid #1a6fa8;
-  border-radius: 8px;
-  color: #1a6fa8;
+  background: var(--button-add-bg);
+  border: 1px solid var(--button-primary);
+  border-radius: 24px;
+  color: var(--button-add-text);
   font-size: 16px;
+  
   cursor: pointer;
 }
 
@@ -47,7 +50,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  background: #fff;
+  background: var(--bg-list);
 }
 
 .record-item {
@@ -55,12 +58,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 20px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.record-name { font-weight: bold; margin: 0 0 4px; font-size: 16px;}
-.record-date { font-size: 12px; color: #666; margin: 0 0 4px; }
-.record-memo { font-size: 14px; margin: 0; }
+.record-name { font-weight: bold; margin: 0 0 4px; font-size: 16px; color: var(--text-primary); }
+.record-date { font-size: 12px; color: var(--text-secondary); margin: 0 0 4px; }
+.record-memo { font-size: 14px; margin: 0; color: var(--text-primary); }
 
 .action-buttons {
   display: flex;
@@ -73,6 +76,7 @@
   border: none;
   font-size: 20px;
   cursor: pointer;
+  color: var(--text-secondary);
 }
 
 .delete-button {
@@ -80,7 +84,7 @@
   border: none;
   font-size: 20px;
   cursor: pointer;
-  color: #aaa;
+  color: var(--text-secondary);
 }
 
 .form {
@@ -88,12 +92,18 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  background: var(--bg-screen);
+  min-height: 100vh;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 8px
+  gap: 8px;
+}
+
+.form label {
+  color: var(--text-primary);
 }
 
 .form input,
@@ -101,10 +111,12 @@
   width: 100%;
   max-width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border);
   border-radius: 8px;
   font-size: 16px;
   box-sizing: border-box;
+  background: var(--bg-input);
+  color: var(--text-primary);
 }
 
 .form textarea {
@@ -129,10 +141,10 @@ input[type="date"] {
 .cancel-button {
   flex: 1;
   padding: 12px 16px;
-  background: white;
-  border: 2px solid #1a6fa8;
+  background: var(--bg-input);
+  border: 2px solid var(--button-primary);
   border-radius: 8px;
-  color: #1a6fa8;
+  color: var(--button-primary);
   font-size: 16px;
   cursor: pointer;
 }
@@ -140,22 +152,24 @@ input[type="date"] {
 .submit-button {
   flex: 1;
   padding: 12px 16px;
-  background: #1a6fa8;
+  background: var(--button-primary);
   border: none;
   border-radius: 8px;
-  color: white;
+  color: var(--button-primary-text);
   font-size: 16px;
   cursor: pointer;
 }
 
 .search-input {
   width: 100%;
-  margin-top: 8px;
+  margin-top: 16px;
   padding: 10px 12px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border);
   border-radius: 8px;
   font-size: 14px;
   box-sizing: border-box;
+  background: var(--bg-input);
+  color: var(--text-primary);
 }
 
 .sort-buttons {
@@ -166,20 +180,20 @@ input[type="date"] {
 
 .sort-button {
   padding: 6px 12px;
-  background: #fff;
-  border: 1px solid #ccc;
+  background: var(--bg-input);
+  border: 1px solid var(--input-border);
   border-radius: 20px;
   font-size: 12px;
   cursor: pointer;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .sort-active {
   padding: 6px 12px;
-  background: #1a6fa8;
-  border: 1px solid #1a6fa8;
+  background: var(--button-primary);
+  border: 1px solid var(--button-primary);
   border-radius: 20px;
   font-size: 12px;
   cursor: pointer;
-  color: #fff;
+  color: var(--button-primary-text);
 }
