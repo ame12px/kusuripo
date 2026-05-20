@@ -6,6 +6,13 @@
 
 https://kusuripo.vercel.app
 
+## スクリーンショット
+
+![一覧画面（ライト）](src/assets/screenshot_light_list.png)
+![登録画面（ライト）](src/assets/screenshot_light_form.png)
+![一覧画面（ダーク）](src/assets/screenshot_dark_list.png)
+![登録画面（ダーク）](src/assets/screenshot_dark_form.png)
+
 ## 機能
 
 - 服薬記録の登録・編集・削除
